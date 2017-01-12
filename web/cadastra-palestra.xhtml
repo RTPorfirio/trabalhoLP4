@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de Autor</title>
+    </h:head>
+    <h:body>
+        <h:form id="form1">
+            <h:panelGrid columns="3">
+                <f:facet name="header">
+                    <h:outputText value="::Nova Palestra"/>
+                </f:facet>
+                <br/>
+                <h:outputText value="Assunto:" />
+
+                <h:inputText size="50" id="assunto" maxlength="255"
+                             value="#{palestraBean.palestra.assunto}"
+                             required="true"
+                             requiredMessage="Campo obrigatório"/>
+                <h:message for="assunto"/>
+
+
+                <h:selectOneMenu value="#{palestraBean.palestra.idpalestrante}">
+                    <f:selectItems value="#{palestraBean.palestrantesList}" />
+                </h:selectOneMenu>
+
+            </h:panelGrid>
+
+            <h:commandButton value="Salvar" 
+                             action="#{palestraBean.cadastrarPalestra()}" />            
+            <h:commandButton value="Limpar" type="reset" />
+
+            <h:commandLink value="Cancelar" action="index" immediate="true" />    
+        </h:form>
+    </h:body>
+</html>

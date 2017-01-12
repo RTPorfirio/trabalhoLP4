@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Index</title>
+    </h:head>
+    <h:body>
+        <h:link value="Cadastrar Palestrante" outcome="cadastra-palestrante"/><br/>
+        <h:link value="Cadastrar Palestra" outcome="cadastra-palestra"/>
+
+        <br/>
+        <p:outputLabel for="dataList" rendered="#{not empty palestraBean.palestras}">
+            <h:form id="dataList" style="width: 455px">
+                <p:dataTable  value="#{palestraBean.palestras}" var="palestra">
+                    <p:column headerText="Palestrante">
+                        <h:outputText value="#{palestra.idpalestrante.nome}"></h:outputText>
+                    </p:column>    
+                    <p:column headerText="Assunt">
+                        <h:outputText value="#{palestra.assunto}"></h:outputText>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </p:outputLabel>
+
+    </h:body>
+</html>

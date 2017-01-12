@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de Autor</title>
+    </h:head>
+    <h:body>
+        <h:form id="form1">
+            <h:panelGrid columns="3">
+                <f:facet name="header">
+                    <h:outputText value="::Cadastro de Autores"/>
+                </f:facet>
+                <h:outputText value="Nome:" />
+                <h:inputText size="30" maxlength="50"
+                             value="#{palestranteBean.palestrante.nome}"
+                             required="true"
+                             requiredMessage="Campo obrigatório"/>
+                <h:message for="nome"/>              
+
+            </h:panelGrid>
+
+            <h:commandButton value="Salvar" 
+                             action="#{palestranteBean.salvar()}" />            
+            <h:commandButton value="Limpar" type="reset" />
+
+            <h:commandLink value="Cancelar" action="index" immediate="true" />    
+        </h:form>
+    </h:body>
+</html>
